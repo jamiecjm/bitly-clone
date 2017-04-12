@@ -4,3 +4,9 @@
     <input type="submit" value="Submit">
 </form>
 
+<p>
+<% Url.all.each do |url| %>
+	Original URL: <%= url.original_url%><br>
+	Shortened URL: localhost:9393/<%= url.short_url%><br><br>
+<% end %>
+</p>
