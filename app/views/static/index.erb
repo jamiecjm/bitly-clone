@@ -1,12 +1,74 @@
-<form action="/urls" method="post">
-    Enter URL: 
-    <input type="text" name="long_url">
-    <input type="submit" value="Submit">
-</form>
+<div id="background">
+	<div class="header">
+		<a id="logo" href="">bitly</a>
+		<a href="">TOUR</a>
+		<a href="">ENTERPRISE</a>
+		<a href="">RESOURCES</a>
+		<a href="">BLOG</a>
+		<a href="">ABOUT</a>
+		<button id="signup">SIGNUP</button>
+		<button id="login">LOGIN</button>
+	</div>
 
-<p>
-<% Url.all.each do |url| %>
-	Original URL: <%= url.original_url%><br>
-	Shortened URL: localhost:9393/<%= url.short_url%><br><br>
-<% end %>
-</p>
+	<div class="slogan">
+		<h1>THE LINK KNOWS ALL. SO CAN YOU.</h1>
+		<h5>Own your links with Bitly, the world's leading customer experience platform.</h5>
+		<form action="/urls" method="post">
+		    <input type="text" name="long_url" id="url_form">
+		    <input type="submit" value="SHORTEN" id="shorten_button">
+		</form>
+		<div id="flash"></div>
+		<div class="learnmore">
+			<a href="" id="freesignup">SIGN UP FOR FREE</a>
+			<a href="">or Learn more -></a>
+		</div>
+	</div>
+
+<div class="url_list">
+	<table>
+		<tbody>
+			<% Url.all.reverse.each do |url| %>
+				<tr>
+					<td> 
+						<a href="<%= url.original_url%>" id="title">
+						<%=url.title%>
+						</a><br>
+						<a href="<%= url.original_url%>" id="long_url">
+						<%= url.original_url%>
+						</a><br>
+						<div id="short_url">localhost:9393/<%= url.short_url%>
+						<button type="button" id="copy">COPY</button></div>
+						<div id="clickcount"><%= url.click_count%><img src="/img/bar-chart.png" id="barchart"></div>
+					</td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
+
+<div class="introduction">
+	<div id="intro">
+		<p id="unleash">UNLEASH THE POWER OF THE LINK</p>
+		<p id = "linksareeverywhere">Links are everywhere. Within every channel and every platform. Only Bitlinks<br>are powerful enough to allow you to see clear across the internet.</p>
+	</div>
+	<table id="description">
+		<tbody>
+			<tr>
+				<td><img src="/img/shorten.png"><br>
+				<span>SHORTEN</span><br>
+				Shorten, brand and optimize your links across devices and channels. Share them via Bitly, API or partner integrations.
+				</td>
+				<td><img src="/img/measure.png"><br>
+				<span>MEASURE</span><br>
+				Track individual link analytics, gather audience intelligence and measure campaign performance in one location.
+				</td>
+				<td><img src="/img/optimize.png"><br>
+				<span>OPTIMIZE</span><br>
+				Collect insights on your performance and optimize your marketing efforts to better fit your audience needs.
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+</div>
