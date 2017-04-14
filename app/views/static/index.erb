@@ -36,8 +36,8 @@
 						<a href="<%= url.original_url%>" id="long_url">
 						<%= url.original_url%>
 						</a><br>
-						<div id="short_url">localhost:9393/<%= url.short_url%>
-						<button type="button" id="copy">COPY</button></div>
+						<div id="short_url"><span id = "shortcut">localhost:9393/<%= url.short_url%></span>
+						<button type="button" id="copy" onclick="copyToClipboard('shortcut')>COPY</button></div>
 						<div id="clickcount"><%= url.click_count%><img src="/img/bar-chart.png" id="barchart"></div>
 					</td>
 				</tr>
@@ -72,3 +72,7 @@
 </div>
 
 </div>
+
+
+
+

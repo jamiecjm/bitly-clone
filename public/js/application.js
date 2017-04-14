@@ -1,3 +1,26 @@
+function GetValue()
+{
+    var myarray= new Array("item1","item2","item3");
+    var random = myarray[Math.floor(Math.random() * myarray.length)];
+    //alert(random);
+    document.getElementById("message").innerHTML=random;
+}
+
+function copyToClipboard(elementId) {
+
+
+  var aux = document.createElement("input");
+  aux.setAttribute("value", document.getElementById(elementId).innerHTML);
+  document.body.appendChild(aux);
+  aux.select();
+  document.execCommand("copy");
+
+  document.body.removeChild(aux);
+
+}
+
+
+
 $(document).ready(function(){
 	$(".header > a").mouseenter(function(){
 		$(this).css("border-top","1px solid white");
@@ -24,6 +47,7 @@ $(document).ready(function(){
 		$(this).css("color","white");
 		$(this).css("border-color","white");
 	})
+
 
 
 

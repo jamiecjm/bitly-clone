@@ -12,6 +12,8 @@ require 'mechanize'
 	# database
 require 'pg'
 require 'active_record'
+require 'activerecord-import/base'
+ActiveRecord::Import.require_adapter('postgresql')
 require 'logger'
 require 'csv'
 

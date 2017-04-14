@@ -23,7 +23,6 @@ class Url < ActiveRecord::Base
 	end
 
 	def valid_url?
-		# original_url =~ /^https?:\/\/.+\.\w{3}/
 		original_url =~ URI::regexp
 	end
 end

@@ -15,6 +15,7 @@ gem 'thin'
 gem 'activerecord'
 gem 'activesupport'
 gem 'sinatra-activerecord'
+gem 'activerecord-import', '~> 0.15.0'
 
 # Adding Database elements
 gem 'pg'

@@ -24,7 +24,7 @@ get '/:short_url' do
   # redirect to appropriate "long" URL
   shorturl = params[:short_url]
   url = Url.find_by(short_url: shorturl)
-  url.update(click_count: url.click_count += 1)
-  redirect url.original_url
+  url.update(click_count: url.click_count += 1) if url !=nil
+  redirect url.original_url if url !=nil
 end
 
