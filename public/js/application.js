@@ -46,7 +46,8 @@ $(document).ready(function(){
 
       success: function(data){
       	$("#flash").html("")
-
+      	var url = window.location.href
+      	var host_with_port = url.split("/")[2]
 	      // write some code here to display the shortened URL
 	      // $("#table").html(data);
 	      $(".url_list tr:first-child").before("<tr><td> <a href=\""+data.original_url+"\" id=\"title\">"+
@@ -54,7 +55,7 @@ $(document).ready(function(){
 						"</a><br><a href=\""+data.original_url+"\" id=\"long_url\">"+
 						data.original_url+
 						"</a><br>"+
-						"<div id=\"short_url\"><span id =\""+data.short_url+"\">localhost:9393/"+data.short_url+"</span>"+
+						"<div id=\"short_url\"><span id =\""+data.short_url+"\">"+host_with_port+"/"+data.short_url+"</span>"+
 						"<button type=\"button\" id=\"copy\" onclick=\"copyToClipboard(\'"+data.short_url+"\')\">COPY</button></div>"+
 						"<div id=\"clickcount\">"+data.click_count+"<img src=\"/img/bar-chart.png\" id=\"barchart\"></div></td></tr>");
 			
