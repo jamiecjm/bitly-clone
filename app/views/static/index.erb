@@ -36,7 +36,7 @@
 						<a href="<%= url.original_url%>" id="long_url">
 						<%= url.original_url%>
 						</a><br>
-						<div id="short_url"><span id ="<%=url.short_url%>"><%= request.host_with_port+"/"+url.short_url%></span>
+						<div id="short_url"><span id ="<%=url.short_url%>"><%=request.host_with_port+"/"+url.short_url%></span>
 						<button type="button" id="copy" onclick="copyToClipboard('<%=url.short_url%>')">COPY</button></div>
 						<div id="clickcount"><%= url.click_count%><img src="/img/bar-chart.png" id="barchart"></div>
 					</td>

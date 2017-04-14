@@ -55,7 +55,7 @@ $(document).ready(function(){
 						data.original_url+
 						"</a><br>"+
 						"<div id=\"short_url\"><span id =\""+data.short_url+"\">localhost:9393/"+data.short_url+"</span>"+
-						"<button type=\"button\" id=\"copy\" onclick=\"copyToClipboard(\'"request.host_with_port+"/"+data.short_url+"\')\">COPY</button></div>"+
+						"<button type=\"button\" id=\"copy\" onclick=\"copyToClipboard(\'"+data.short_url+"\')\">COPY</button></div>"+
 						"<div id=\"clickcount\">"+data.click_count+"<img src=\"/img/bar-chart.png\" id=\"barchart\"></div></td></tr>");
 			
 
