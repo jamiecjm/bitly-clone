@@ -27,7 +27,7 @@
 <div class="url_list">
 	<table>
 		<tbody>
-			<% Url.all.reverse.each do |url| %>
+			<% Url.last(20).reverse.each do |url| %>
 				<tr>
 					<td> 
 						<a href="<%= url.original_url%>" id="title">

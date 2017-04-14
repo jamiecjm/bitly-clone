@@ -6,7 +6,7 @@ get '/' do
 end
 
 post '/urls' do
-  @url = Url.new(original_url: params[:long_url], click_count: 0)
+  @url = Url.new(original_url: params[:long_url])
   if @url.save
   	# redirect "/"
     # erb: "static/table", layout:false

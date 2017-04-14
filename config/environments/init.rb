@@ -13,6 +13,7 @@ require 'mechanize'
 require 'pg'
 require 'active_record'
 require 'logger'
+require 'csv'
 
 	# sinatra
 require 'sinatra'
