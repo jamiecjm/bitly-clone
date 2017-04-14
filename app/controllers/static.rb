@@ -6,7 +6,8 @@ get '/' do
 end
 
 post '/urls' do
-  @url = Url.new(original_url: params[:long_url])
+  input=params[:long_url].delete(" ")
+  @url = Url.new(original_url: input)
   if @url.save
   	# redirect "/"
     # erb: "static/table", layout:false
@@ -16,6 +17,7 @@ post '/urls' do
   	# redirect "/"
     status 400
     return @url.errors.messages.values.first.first
+
   end
 end
 

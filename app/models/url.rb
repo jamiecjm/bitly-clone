@@ -5,7 +5,12 @@ class Url < ActiveRecord::Base
 
 	before_create do
 		self.shorten
-		self.title = Mechanize.new.get(self.original_url).title
+		begin
+		  # here is the code that could raise ArgumentError 
+		  self.title = Mechanize.new.get(self.original_url).title	  
+		rescue Mechanize::ResponseCodeError
+		  self.title = "No Title"
+		end
 	end
 
 

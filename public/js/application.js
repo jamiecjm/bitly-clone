@@ -1,25 +1,11 @@
-function GetValue()
-{
-    var myarray= new Array("item1","item2","item3");
-    var random = myarray[Math.floor(Math.random() * myarray.length)];
-    //alert(random);
-    document.getElementById("message").innerHTML=random;
-}
-
 function copyToClipboard(elementId) {
-
-
   var aux = document.createElement("input");
   aux.setAttribute("value", document.getElementById(elementId).innerHTML);
   document.body.appendChild(aux);
   aux.select();
   document.execCommand("copy");
-
   document.body.removeChild(aux);
-
 }
-
-
 
 $(document).ready(function(){
 	$(".header > a").mouseenter(function(){
@@ -49,8 +35,6 @@ $(document).ready(function(){
 	})
 
 
-
-
 // this ID here refers to the form where the usesr types in a URL, you may have a different name for the ID. Edit the code accordingly.
   $('form').submit(function(e){ 
     e.preventDefault();         
@@ -62,22 +46,27 @@ $(document).ready(function(){
 
       success: function(data){
       	$("#flash").html("")
+
 	      // write some code here to display the shortened URL
 	      // $("#table").html(data);
-	      $(".url_list tr:first-child").before("<tr><td><a href=\""+data.original_url+"\" id=\"title\">"+data.title+"</a><br>"+
-	      	"<a href=\""+data.original_url+"\" id=\"long_url\">"+data.original_url+"</a><br>"+
-	      	"<div id=\"short_url\"> localhost:9393/"+data.short_url+
-	      	"<button type=\"button\" id=\"copy\"> COPY </button></div>"+
-	      	"<div id =\"clickcount\">"+data.click_count+"<img src =\"/img/bar-chart.png\" id=\"barchart\"></div></td></tr>");
+	      $(".url_list tr:first-child").before("<tr><td> <a href=\""+data.original_url+"\" id=\"title\">"+
+						data.title+
+						"</a><br><a href=\""+data.original_url+"\" id=\"long_url\">"+
+						data.original_url+
+						"</a><br>"+
+						"<div id=\"short_url\"><span id =\""+data.short_url+"\">localhost:9393/"+data.short_url+"</span>"+
+						"<button type=\"button\" id=\"copy\" onclick=\"copyToClipboard(\'"+data.short_url+"\')\">COPY</button></div>"+
+						"<div id=\"clickcount\">"+data.click_count+"<img src=\"/img/bar-chart.png\" id=\"barchart\"></div></td></tr>");
 			
 
 			$(".url_list tr:first-child td").hide(0.00001)
 			$(".url_list tr:first-child td").slideDown("slow");
 	  },
-
+// @url.errors.messages.values.first.first
 	  error: function(data){
-	      // alert(data.responseText)
-	     $("#flash").html(data.responseText)
+	  	$("#flash").html(data.responseText)
+	    $("#flash").hide(0.00001)
+      	$("#flash").slideDown("slow");
 	  }  
 
     }); // end of function .ajax
