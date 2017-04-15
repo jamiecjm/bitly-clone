@@ -10,14 +10,9 @@ function copyToClipboard(elementId) {
 $(document).ready(function(){
 	$('#url_form').css("color","gray");	
 	$('#url_form').val('Paste a link and shorten!');
-	$("#url_form").mouseenter(function(){
+	$("#url_form").click(function(){
 		$(this).val("")
 		$('#url_form').css("color","black");
-	})
-	$("#url_form").mouseleave(function(){
-		if ($("#url_form").val() === "")
-			{$('#url_form').css("color","gray");
-			$("#url_form").val("Paste a link and shorten!")}
 	})
 
 	$(".header > a").mouseenter(function(){

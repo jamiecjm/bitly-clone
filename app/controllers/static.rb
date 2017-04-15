@@ -7,17 +7,13 @@ end
 
 post '/urls' do
   input=params[:long_url].delete(" ")
-  @url = Url.new(original_url: input)
-  if @url.save
-  	# redirect "/"
-    # erb: "static/table", layout:false
+  @new_url = Url.create(original_url: input)
+  @url = Url.find_by(original_url: input) 
+  if @url != nil
     return @url.to_json
   else
-  	# flash[:warning] = "#{url.errors.messages.values.first.first}"
-  	# redirect "/"
     status 400
-    return @url.errors.messages.values.first.first
-
+    return @new_url.errors.messages.values.first.first
   end
 end
 
